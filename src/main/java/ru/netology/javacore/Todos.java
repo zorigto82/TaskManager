@@ -1,6 +1,8 @@
 package ru.netology.javacore;
 
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Todos {
     List<String> list = new ArrayList<>();
@@ -14,7 +16,10 @@ public class Todos {
     }
 
     public List<String> getAllTasks() {
-        return list;
+        Stream<String> stream = list.stream()
+                .sorted(Comparator.naturalOrder());
+        return stream.collect(Collectors.toList());
     }
+
 
 }

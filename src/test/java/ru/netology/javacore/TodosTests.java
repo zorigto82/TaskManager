@@ -16,6 +16,7 @@ public class TodosTests {
     void testAddTask() {
         todos.addTask("Сходить в магазин");
         todos.addTask("Убраться в комнате");
+        todos.addTask("Вынести мусор");
     }
 
     @Test
