@@ -8,17 +8,17 @@ public class Todos {
     List<String> list = new ArrayList<>();
 
     public void addTask(String task) {
-        list.add(task);
+        list.add(task + " ");
     }
 
     public void removeTask(String task) {
         list.remove(task);
     }
 
-    public List<String> getAllTasks() {
+    public String getAllTasks() {
         Stream<String> stream = list.stream()
                 .sorted(Comparator.naturalOrder());
-        return stream.collect(Collectors.toList());
+        return stream.collect(Collectors.joining());
     }
 
 
