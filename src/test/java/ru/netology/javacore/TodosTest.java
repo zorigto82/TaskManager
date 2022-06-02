@@ -1,10 +1,11 @@
 package ru.netology.javacore;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class TodosTests {
+import static org.junit.jupiter.api.Assertions.*;
+
+class TodosTest {
     Todos todos;
 
     @BeforeEach
@@ -28,4 +29,5 @@ public class TodosTests {
     void testGetAllTasks() {
         todos.getAllTasks();
     }
+
 }
