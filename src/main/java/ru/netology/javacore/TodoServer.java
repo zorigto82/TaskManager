@@ -1,11 +1,14 @@
 package ru.netology.javacore;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Iterator;
 import java.util.Scanner;
+
 
 public class TodoServer {
     private int port;
@@ -23,9 +26,9 @@ public class TodoServer {
                 try (
                         Socket socket = serverSocket.accept();
                         BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                        PrintWriter out = new PrintWriter(socket.getOutputStream());
+                        PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
                 ) {
-                    // обработка одного подключения
+                    System.out.println("New connection accepted");
                     String line = in.readLine();
                     todos.addTask(line);
                     out.println(todos.getAllTasks());
