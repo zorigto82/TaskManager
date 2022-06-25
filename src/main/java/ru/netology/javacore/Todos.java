@@ -1,14 +1,16 @@
 package ru.netology.javacore;
 
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class Todos {
     List<String> list = new ArrayList<>();
 
+    public List<String> getList(){
+        return list;
+   }
+
     public void addTask(String task) {
-        list.add(task + " ");
+        list.add(task);
     }
 
     public void removeTask(String task) {
@@ -16,10 +18,17 @@ public class Todos {
     }
 
     public String getAllTasks() {
-        Stream<String> stream = list.stream()
-                .sorted(Comparator.naturalOrder());
-        return stream.collect(Collectors.joining());
+        Collections.sort(list);
+        StringBuilder builder = new StringBuilder();
+        for (String str : list) {
+            builder.append(str).append(" ");
+        }
+        return builder.toString();
     }
-
-
+    @Override
+    public String toString() {
+        return "Todos{" +
+                "list=" + list +
+                '}';
+    }
 }

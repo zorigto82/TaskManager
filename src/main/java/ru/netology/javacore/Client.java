@@ -11,7 +11,7 @@ public class Client {
     public static String pickRandomChar() {
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            System.out.println("Введите задачу из списка или введите своё");
+            System.out.println("Введите задачу или удалите задачу из списка");
             System.out.println("1. Сходить в магазин" + "\n" + "2. Вынести мусор" + "\n" + "3. Убраться в доме" + "\n" + "4. Своя задача");
             String a = "Сходить в магазин";
             String b = "Вынести мусор";
@@ -37,7 +37,7 @@ public class Client {
                 BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
         ) {
-            out.println("task:" + pickRandomChar());
+            out.println("{ \"type\": \"ADD\", \"task\": \"task #" + pickRandomChar() + "\" }");
             System.out.println(in.readLine());
         }
     }
